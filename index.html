@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamSniper | Угадай момент</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header neon-border-bottom">
+            <div class="logo">
+                <span class="pulse-dot"></span>
+                <h1>Stream<span class="accent">Sniper</span></h1>
+            </div>
+            <div class="user-stats">
+                <div class="stat-box">
+                    <span class="stat-label">Ранг</span>
+                    <span class="stat-value text-gradient" id="user-rank">#42</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Очки</span>
+                    <span class="stat-value timer-font" id="user-score">0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Layout -->
+        <main class="main-content">
+            <!-- Left Column: Video and controls -->
+            <div class="stream-section">
+                
+                <div class="stream-controls glass-panel mb-4">
+                    <h3 class="selector-title">ВЫБЕРИТЕ ТРАНСЛЯЦИЮ:</h3>
+                    <div class="category-selector" id="category-selector">
+                        <button class="cat-btn active" data-sport="cs">CS:GO / ТАКТИКА</button>
+                        <button class="cat-btn" data-sport="football">ФУТБОЛ</button>
+                        <button class="cat-btn" data-sport="dota">DOTA 2 / MOBA</button>
+                    </div>
+                </div>
+
+                <div class="video-container glass-panel mt-4">
+                    <div class="stream-overlay">
+                        <div class="live-badge">LIVE</div>
+                        <div class="viewers"><span class="icon-eye"></span> <span id="viewers-count">14,204</span></div>
+                    </div>
+                    <!-- Dummy CSS Stream Element -->
+                    <div class="virtual-stream sport-cs" id="v-stream">
+                        <div class="stream-bg-animation" id="stream-bg-fx">
+                            <!-- Background animation element injected via JS/CSS -->
+                        </div>
+                        <div class="stream-hud">
+                            <span class="team" id="team-1">NAVI</span>
+                            <span class="score" id="stream-score">12 - 14</span>
+                            <span class="team" id="team-2">FAZE</span>
+                        </div>
+                        <div class="stream-action-text" id="stream-status">
+                            ИДЕТ ПОДГОТОВКА...
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls-container glass-panel mt-4">
+                    <h2>Панель прогнозирования</h2>
+                    <p class="instruction">Нажимай кнопку заранее, <strong>до наступления события</strong>. Система считает отклонение в секундах от твоего клика до реального экшена! Чем точнее угадал время наступления — тем выше очки.</p>
+                    
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" id="btn-guess-action">
+                            <div class="btn-content">
+                                <span class="btn-icon">⚡</span>
+                                <span class="btn-text">ПРЕДУГАДАТЬ СКОРОЕ СОБЫТИЕ</span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <div class="feedback-area" id="feedback-area">
+                        <!-- Points animation will appear here -->
+                        Ожидание вашего прогноза...
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Leaderboard -->
+            <aside class="sidebar glass-panel">
+                <div class="sidebar-header">
+                    <h2>Турнирная таблица</h2>
+                    <span class="season-badge">Сезон 1</span>
+                </div>
+                
+                <ul class="leaderboard-list" id="leaderboard">
+                    <!-- Javascript will populate this -->
+                </ul>
+            </aside>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
